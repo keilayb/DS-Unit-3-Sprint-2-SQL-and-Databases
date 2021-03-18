@@ -23,9 +23,6 @@ titanic_df['Name'] = titanic_df['Name'].str.replace("'", " ")
 titanic = titanic_df.to_sql("titanic", con=sql_conn, if_exists="replace")
 
 rows = sql_curs.execute("""SELECT * FROM titanic""").fetchall()
-# print(result.fetchall())
-
-# rows = result
 
 try:
     pg_curs.execute("""DROP TABLE IF EXISTS titanic""")
